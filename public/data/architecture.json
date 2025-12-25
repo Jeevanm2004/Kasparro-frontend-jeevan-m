@@ -1,0 +1,38 @@
+{
+    "nodes": [
+        {
+            "id": "input_assembler",
+            "label": "Input Assembler",
+            "type": "input",
+            "description": "Aggregates data from crawlers, search APIs, and internal logs.",
+            "connections": [
+                "context_pack"
+            ]
+        },
+        {
+            "id": "context_pack",
+            "label": "Context Pack",
+            "type": "process",
+            "description": "Standardizes data into a unified context for analysis.",
+            "connections": [
+                "module_engine"
+            ]
+        },
+        {
+            "id": "module_engine",
+            "label": "Audit Engines",
+            "type": "process",
+            "description": "Runs parallel analysis across 7 core modules.",
+            "connections": [
+                "output_surfaces"
+            ]
+        },
+        {
+            "id": "output_surfaces",
+            "label": "Output Surfaces",
+            "type": "output",
+            "description": "Delivers insights via Dashboard, API, and Reports.",
+            "connections": []
+        }
+    ]
+}

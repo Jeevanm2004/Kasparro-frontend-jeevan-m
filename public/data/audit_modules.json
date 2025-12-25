@@ -1,0 +1,207 @@
+[
+    {
+        "id": "module_technical",
+        "name": "Technical Core",
+        "description": "Analysis of site infrastructure, crawlability, and schema implementation.",
+        "score": 95,
+        "status": "pass",
+        "insights": [
+            "Site speed is excellent (98/100 mobile).",
+            "SSL configuration is valid and secure.",
+            "Robots.txt is correctly configured for AI bots.",
+            "Sitemap.xml is up-to-date and accessible."
+        ],
+        "issues": [],
+        "recommendations": []
+    },
+    {
+        "id": "module_content",
+        "name": "Content Quality",
+        "description": "Evaluation of content depth, relevance, semantic richness, and uniqueness.",
+        "score": 72,
+        "status": "warning",
+        "insights": [
+            "Blog content is well-structured with clear headers.",
+            "Semantic entity density is good in top-tier pages.",
+            "Duplicate content detected across multiple regional subdomains."
+        ],
+        "issues": [
+            {
+                "id": "iss_cont_1",
+                "severity": "major",
+                "title": "Thin Content on Product Pages",
+                "description": "25% of product pages have less than 300 words of unique description, limiting semantic depth."
+            },
+            {
+                "id": "iss_cont_2",
+                "severity": "minor",
+                "title": "Missing Alt Text",
+                "description": "Several images on the homepage lack descriptive alt text for accessibility and SEO."
+            }
+        ],
+        "recommendations": [
+            {
+                "id": "rec_cont_1",
+                "title": "Enhance Product Descriptions",
+                "impact": "high",
+                "effort": "medium",
+                "description": "Add detailed feature lists, use cases, and FAQ sections to product pages to increase entity depth."
+            },
+            {
+                "id": "rec_cont_2",
+                "title": "Consolidate Regional Content",
+                "impact": "medium",
+                "effort": "high",
+                "description": "Implement canonical tags for regional pages with identical content to prevent dilution."
+            }
+        ]
+    },
+    {
+        "id": "module_ai_visibility",
+        "name": "AI Visibility",
+        "description": "How well Large Language Models (LLMs) understand and retrieve your brand entity.",
+        "score": 65,
+        "status": "fail",
+        "insights": [
+            "Brand is correctly recognized by GPT-4 and Claude 3.",
+            "Gemini 1.5 fails to associate the brand with 'Enterprise Solutions'.",
+            "Key executive entities are disconnected from the brand graph."
+        ],
+        "issues": [
+            {
+                "id": "iss_ai_1",
+                "severity": "critical",
+                "title": "Missing Entity Associations",
+                "description": "LLMs do not reliably associate 'Kasparro' with 'AI SEO' or 'Brand Intelligence' in zero-shot prompts."
+            },
+            {
+                "id": "iss_ai_2",
+                "severity": "critical",
+                "title": "Hallucinated Pricing",
+                "description": "GPT-4 frequently hallucinates incorrect pricing tiers for the Enterprise plan."
+            }
+        ],
+        "recommendations": [
+            {
+                "id": "rec_ai_1",
+                "title": "Optimize About Page for Entities",
+                "impact": "high",
+                "effort": "low",
+                "description": "Add structured data (Organization schema) and clear, defining statements about core offerings to the About page."
+            },
+            {
+                "id": "rec_ai_2",
+                "title": "Publish Pricing Clarity",
+                "impact": "high",
+                "effort": "low",
+                "description": "Create a clear, publicly accessible pricing or 'contact for pricing' page to ground LLM knowledge."
+            }
+        ]
+    },
+    {
+        "id": "module_trust",
+        "name": "Trust & EEAT",
+        "description": "Analysis of Experience, Expertise, Authoritativeness, and Trustworthiness signals.",
+        "score": 88,
+        "status": "pass",
+        "insights": [
+            "Strong author bios present for all blog posts.",
+            "Privacy policy and Terms of Service are easily accessible.",
+            "HTTPS is enforced globally."
+        ],
+        "issues": [
+            {
+                "id": "iss_trust_1",
+                "severity": "minor",
+                "title": "Missing Social Proof",
+                "description": "Homepage lacks visible customer testimonials or case study links above the fold."
+            }
+        ],
+        "recommendations": [
+            {
+                "id": "rec_trust_1",
+                "title": "Add Verified Reviews",
+                "impact": "medium",
+                "effort": "low",
+                "description": "Embed third-party verified reviews (e.g., G2, Capterra) on the pricing and landing pages."
+            }
+        ]
+    },
+    {
+        "id": "module_competitor",
+        "name": "Competitor Gap",
+        "description": "Benchmarking entity dominance against top 3 industry leaders.",
+        "score": 78,
+        "status": "info",
+        "insights": [
+            "Competitor A dominates 'Generative Search' queries.",
+            "Competitor B has significantly higher backlink velocity.",
+            "Your brand leads in 'Technical Audit' related queries."
+        ],
+        "issues": [],
+        "recommendations": [
+            {
+                "id": "rec_comp_1",
+                "title": "Target 'Generative Search' Topic",
+                "impact": "high",
+                "effort": "high",
+                "description": "Create a pillar page dedicated to Generative Search to erode Competitor A's dominance."
+            }
+        ]
+    },
+    {
+        "id": "module_local",
+        "name": "Local Presence",
+        "description": "Visibility in local search results and map packs.",
+        "score": 92,
+        "status": "pass",
+        "insights": [
+            "Google Business Profile is claimed and verified.",
+            "NAP (Name, Address, Phone) consistency is 100% across directories.",
+            "Positive review sentiment in local listings."
+        ],
+        "issues": [],
+        "recommendations": []
+    },
+    {
+        "id": "module_ux",
+        "name": "User Experience",
+        "description": "Core Web Vitals, accessibility, and engagement metrics.",
+        "score": 81,
+        "status": "warning",
+        "insights": [
+            "LCP (Largest Contentful Paint) is within green limits.",
+            "Mobile responsiveness is generally good."
+        ],
+        "issues": [
+            {
+                "id": "iss_ux_1",
+                "severity": "major",
+                "title": "Cumulative Layout Shift (CLS)",
+                "description": "Significant layout shifts detected on blog post load due to dynamic ad insertion."
+            },
+            {
+                "id": "iss_ux_2",
+                "severity": "minor",
+                "title": "Contrast Ratio Issues",
+                "description": "Footer links have insufficient color contrast against the dark background."
+            }
+        ],
+        "recommendations": [
+            {
+                "id": "rec_ux_1",
+                "title": "Reserve Space for Ads",
+                "impact": "high",
+                "effort": "medium",
+                "description": "Set fixed height containers for dynamic ad slots to prevent content jumping."
+            },
+            {
+                "id": "rec_ux_2",
+                "title": "Update Footer Colors",
+                "impact": "medium",
+                "effort": "low",
+                "description": "Lighten the text color of footer links to meet WCAG AA standards."
+            }
+        ]
+    }
+]

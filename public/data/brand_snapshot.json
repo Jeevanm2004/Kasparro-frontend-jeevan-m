@@ -1,0 +1,10 @@
+{
+    "id": "brd_1",
+    "name": "Acme Corp",
+    "logoUrl": "/logo.png",
+    "metrics": {
+        "aiVisibilityScore": 65,
+        "trustScore": 88,
+        "nonBrandedCoverage": 72
+    }
+}
