@@ -2,6 +2,7 @@
     "id": "brd_1",
     "name": "Acme Corp",
     "logoUrl": "/logo.png",
+    "lastAuditTimestamp": "2025-12-25T10:30:00Z",
     "metrics": {
         "aiVisibilityScore": 65,
         "trustScore": 88,

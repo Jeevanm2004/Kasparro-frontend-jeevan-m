@@ -2,22 +2,34 @@
 
 import { useAppStore } from "@/lib/store"
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FadeIn } from "@/components/animate/FadeIn"
 import { DashboardSkeleton } from "@/components/skeletons"
-import { Activity, Shield, TrendingUp, AlertCircle, TrendingDown, Minus } from "lucide-react"
+import { Activity, Shield, TrendingUp, AlertCircle, TrendingDown, Minus, Building2, Clock } from "lucide-react"
 
 export default function DashboardPage() {
     const { currentBrand, fetchInitialData, modules, isLoading } = useAppStore()
-
     useEffect(() => {
         fetchInitialData()
     }, [fetchInitialData])
 
     if (isLoading || !currentBrand) {
         return <DashboardSkeleton />
+    }
+
+    // Format timestamp
+    const formatTimestamp = (timestamp?: string) => {
+        if (!timestamp) return 'Never'
+        const date = new Date(timestamp)
+        return new Intl.DateTimeFormat('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }).format(date)
     }
 
     // Calculate overall health (mock logic)
@@ -27,17 +39,34 @@ export default function DashboardPage() {
 
     return (
         <div className="space-y-8 max-w-7xl mx-auto py-6">
-            <div className="flex flex-col items-start gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-6 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <FadeIn delay={0.1}>
-                        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">Overview</h1>
-                        <p className="text-zinc-500 dark:text-zinc-400 mt-1">Real-time brand perception across AI models.</p>
+            <div className="flex flex-col items-start gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-6">
+                <div className="w-full flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                    <div>
+                        <FadeIn delay={0.1}>
+                            <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">Overview</h1>
+                            <p className="text-zinc-500 dark:text-zinc-400 mt-1">Real-time brand perception across AI models.</p>
+                        </FadeIn>
+                    </div>
+                    <FadeIn delay={0.2}>
+                        <div className="flex items-center gap-4">
+                            {/* Brand Name */}
+                            <div className="flex items-center gap-2">
+                                <Building2 className="h-4 w-4 text-zinc-400" />
+                                <span className="text-sm font-semibold text-zinc-900 dark:text-white">{currentBrand.name}</span>
+                            </div>
+                            {/* Live indicator */}
+                            <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+                                <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                                Live
+                            </div>
+                        </div>
                     </FadeIn>
                 </div>
-                <FadeIn delay={0.2}>
+                {/* Last Audit Timestamp */}
+                <FadeIn delay={0.3}>
                     <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-                        <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                        Live Monitoring
+                        <Clock className="h-4 w-4" />
+                        <span>Last audit: <span className="font-medium text-zinc-700 dark:text-zinc-300">{formatTimestamp(currentBrand.lastAuditTimestamp)}</span></span>
                     </div>
                 </FadeIn>
             </div>

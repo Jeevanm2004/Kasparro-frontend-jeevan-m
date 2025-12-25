@@ -55,8 +55,8 @@ export function Navbar() {
 
                 <div className="hidden md:flex items-center gap-4">
                     <ModeToggle />
-                    <Button asChild variant="default" size="sm" className="rounded-full px-6 font-medium">
-                        <Link href="/app/dashboard">Dashboard</Link>
+                    <Button asChild variant="default" size="sm" className="rounded-full px-6 font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+                        <Link href="/app/audit/run">Launch App</Link>
                     </Button>
                 </div>
 
@@ -96,7 +96,7 @@ export function Navbar() {
 
                                 <div className="border-t border-zinc-100 dark:border-zinc-800 pt-8 mt-4">
                                     <Button asChild className="w-full h-12 rounded-full text-base font-medium bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 shadow-lg shadow-zinc-900/10">
-                                        <Link href="/app/dashboard" onClick={() => setIsOpen(false)}>Launch App</Link>
+                                        <Link href="/app/audit/run" onClick={() => setIsOpen(false)}>Run Free Audit</Link>
                                     </Button>
                                     <p className="text-center text-xs text-zinc-400 mt-6">
                                         v1.0 Public Beta

@@ -1,0 +1,17 @@
+[
+    {
+        "id": "brd_1",
+        "name": "Acme Corp",
+        "logoUrl": "/logo.png"
+    },
+    {
+        "id": "brd_2",
+        "name": "TechVision Inc",
+        "logoUrl": "/logo.png"
+    },
+    {
+        "id": "brd_3",
+        "name": "Global Dynamics",
+        "logoUrl": "/logo.png"
+    }
+]

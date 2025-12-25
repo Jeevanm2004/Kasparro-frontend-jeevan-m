@@ -1,7 +1,8 @@
 export interface BrandSnapshot {
   id: string;
   name: string;
-  logoUrl?: string;
+  logoUrl: string;
+  lastAuditTimestamp?: string;
   metrics: {
     aiVisibilityScore: number;
     trustScore: number;
